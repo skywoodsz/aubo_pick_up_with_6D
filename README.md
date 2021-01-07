@@ -11,9 +11,10 @@
    ``.so.0.15``
    
    解决方法：
-		由 /opt/ros/lib/ 复制出提示包，改为对应版本后重新复制至该目录下。
-	&&手动复制 UpdateMoveitLib/Kinetic/下的.so文件至/opt/ros/lib/中
+		由 /opt/ros/lib/ 复制出提示包，改为对应版本后重新复制至该目录下。手动复制 UpdateMoveitLib/Kinetic/下的.so文件至/opt/ros/lib/中
+	
 	or
+	
 	重新配置moveit，修改launch文件中controller文件&&moveit_planning_execution&&config文件夹下的controller.yaml
 
 ## 2. dope 安装
@@ -55,13 +56,13 @@
 	
 2. 显卡驱动安装
 
-  1050Ti对应 380驱动，使用ppa安装，**关掉boot的安全模式**
+  ​	1050Ti对应 380驱动，使用ppa安装，**关掉boot的安全模式**
 
   
 
 3. 权重
 
-  如文件夹weights所示
+  ​	如文件夹weights所示
 ## 3. 手眼标定
 
 **3.1** 安装realsense
@@ -108,14 +109,23 @@
 
 *Notes:*
 
-	- ``pip install transforms3d``
-	- ``python -m pip install opencv-contrib-python``
-	- 在cv2.CALIB_HAND_EYE_TSAI出错的py文件中修改如下语句
-		``import sys
-	    sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
-	    import cv2
-	    sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')``
-	- 未解决 gui无法打开报错
+- ``pip install transforms3d``
+
+- ``python -m pip install opencv-contrib-python``
+
+- 在cv2.CALIB_HAND_EYE_TSAI出错的py文件中修改如下语句
+	
+  ``import sys` 
+  
+  ``sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+    ``
+  
+  ``import cv2
+    ``
+  
+  ``sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')``
+  
+- 未解决 gui无法打开报错
 
 **3.5** 标定流程
 
