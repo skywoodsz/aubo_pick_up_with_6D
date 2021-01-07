@@ -1,0 +1,6 @@
+
+<launch>
+  <include file="$(find easy_handeye)/easy_handeye/launch/publish.launch/> <!-- 手眼标定结果发布 -->
+  <node pkg="control" type="tf_camera" name="tf_camera" />	<!-- 抓取数据预处理，tf转换-->
+  <!--<node name="pick5" pkg="control" type="pick5" />-->	<!-- 抓取 -->
+</launch>

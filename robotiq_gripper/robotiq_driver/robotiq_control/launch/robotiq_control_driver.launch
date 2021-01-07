@@ -1,0 +1,12 @@
+<launch>
+
+  <!--connect the the comport -->
+  <node pkg="robotiq_2f_gripper_control" type="Robotiq2FGripperRtuNode.py" name="robotiq2FGripper" output="screen"/>
+
+  <!--start to control the Robotiq-->
+  <node pkg="robotiq_2f_gripper_control" type="Robotiq2FGripperSimpleController.py" name="Robotiq2FGripperSimpleController" output="screen"/>
+
+  <!--start to monitor the status of Robotiq-->
+  <!--<node pkg="robotiq_2f_gripper_control" type="Robotiq2FGripperStatusListener.py" name="Robotiq2FGripperStatusListener" output="screen"/>-->
+
+</launch>

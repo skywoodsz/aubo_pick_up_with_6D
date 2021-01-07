@@ -1,0 +1,17 @@
+parameters:
+  eye_on_hand: true
+  move_group: manipulator
+  move_group_namespace: /
+  namespace: /auboi5_realsense_handeyecalibration_eye_on_hand/
+  robot_base_frame: base_link
+  robot_effector_frame: wrist3_Link
+  tracking_base_frame: camera_link
+  tracking_marker_frame: camera_marker
+transformation:
+  qw: 0.5476491185162247
+  qx: -0.45112377372183393
+  qy: -0.5001026445274138
+  qz: -0.4964525442658754
+  x: 0.006184764202383911
+  y: 0.06496837205326479
+  z: -0.08708527080925527
