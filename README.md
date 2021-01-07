@@ -3,12 +3,15 @@
 
 1. 源码下载：
    ``git clone https://github.com/lg609/aubo_robot.git``
+   
 2. 依赖安装：
    ``sudo apt-get install ros-kinect-moveit-**``
+   
 3. if 编译报错
    ``.so.0.15``
+   
    解决方法：
-   	由 /opt/ros/lib/ 复制出提示包，改为对应版本后重新复制至该目录下。
+		由 /opt/ros/lib/ 复制出提示包，改为对应版本后重新复制至该目录下。
 	&&手动复制 UpdateMoveitLib/Kinetic/下的.so文件至/opt/ros/lib/中
 	or
 	重新配置moveit，修改launch文件中controller文件&&moveit_planning_execution&&config文件夹下的controller.yaml
@@ -20,35 +23,45 @@
 1. cv2 & ros 冲突错误解决
 	
    **1.1**  安装ros-opencv
+	
 	``sudo apt-get install ros-kinect-version-opencv``
+	
 	&
+	
 	安装opencv opencv-contrib-python
+	
 	``python -m pip install opencv-python``
+	
 	``python -m pip install opencv-contrib-python``
 	
 	
 	
 	**1.2** 修改引用路径
 	``import sys``
+	
 	``sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')``
+	
 	``import cv2``
+	
 	``sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')``
 	
 	
 	
 	**1.3** 修改python文件顶部环境
+	
 	``#!/usr/bin/env python3 -->  #!/usr/bin/env python2``
 	
 	
 	
 2. 显卡驱动安装
+
   1050Ti对应 380驱动，使用ppa安装，**关掉boot的安全模式**
 
   
 
 3. 权重
-  如文件夹weights所示
 
+  如文件夹weights所示
 ## 3. 手眼标定
 
 **3.1** 安装realsense
