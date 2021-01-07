@@ -1,0 +1,2 @@
+# aubo_pick_up_with_6D
+aubo_pick_up_with_6D
