@@ -18,12 +18,15 @@
 修改config下的pose.yaml文件进行修正，如doc文件下的config_pose.yaml所示
 
 1. cv2 & ros 冲突错误解决
-	**1.1**  安装ros-opencv
-   ``sudo apt-get install ros-kinect-version-opencv``
+	
+   **1.1**  安装ros-opencv
+	``sudo apt-get install ros-kinect-version-opencv``
 	&
 	安装opencv opencv-contrib-python
 	``python -m pip install opencv-python``
 	``python -m pip install opencv-contrib-python``
+	
+	
 	
 	**1.2** 修改引用路径
 	``import sys``
@@ -31,20 +34,28 @@
 	``import cv2``
 	``sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')``
 	
+	
+	
 	**1.3** 修改python文件顶部环境
 	``#!/usr/bin/env python3 -->  #!/usr/bin/env python2``
-2. 显卡驱动安装
-	1050Ti对应 380驱动，使用ppa安装，**关掉boot的安全模式**
-3. 权重
-	如文件夹weights所示
 	
+	
+	
+2. 显卡驱动安装
+  1050Ti对应 380驱动，使用ppa安装，**关掉boot的安全模式**
+
+  
+
+3. 权重
+  如文件夹weights所示
+
 ## 3. 手眼标定
 
 **3.1** 安装realsense
 	直接由源码安装即可，需要安装所有依赖项
 
 ```
- echo 'deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main' | sudo tee /etc/apt/sources.list.d/realsense-public.list
+   echo 'deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main' | sudo tee /etc/apt/sources.list.d/realsense-public.list
    sudo apt-key adv --keyserver keys.gnupg.net --recv-key 6F3EFCDE
    sudo apt-get update``
    sudo apt-get install librealsense2-dkms
@@ -56,20 +67,32 @@
 **3.2** 安装arcuo_ros
 
 ``git clone -b kinetic-devel https://github.com/pal-robotics/aruco_ros``
+
 ``catkin_make -j2 -DCATKIN_WHITELIST_PACKAGES="aruco_ros"``
 
 安装后注意先调试arcuo_ros，打开realsense，启动arcuo_ros 在rviz下查看arcuo_ros->result->image 看是否成功；启动launch详见doc文件夹下的*marcuo.launch*
+
 *Notes:* 
+
    - Dictionary 一定要选 Original ArUco
+
    - Marker ID 和 Marker size 自选，在launch 文件中做相应的修改, launch文件中默认单位为m
+
    - 打印时，要选择原始大小，否则要测量一下打印出来的真实大小
 
+     
+
 **3.3** vision_visp安装
+
    ``sudo apt-get install ros-kinetic-visp``
 
+
+
 **3.4** easy_handeye安装
+
 ``git clone https://github.com/IFL-CAMP/easy_handeye``
 ``catkin_make -j2 -DCATKIN_WHITELIST_PACKAGES="easy_handeye"``
+
 *Notes:*
 
 	- ``pip install transforms3d``
@@ -92,7 +115,7 @@
 *Notes:* 
 
    - 在 *maruco.launch* 中 *reference_frame* & *camera_frame* 应填入光轴 *camera_color_optical_frame*；即标定应该是工具坐标系 & 光轴
-        - 在 *measy_hand.launch* 中 *tracking_base_frame* 填 *camera_color_optical_frame*；*robot_base_frame* 填入arm的基坐标 *base_link*；
+   - 在 *measy_hand.launch* 中 *tracking_base_frame* 填 *camera_color_optical_frame*；*robot_base_frame* 填入arm的基坐标 *base_link*；
         *robot_effector_frame* 填入工具坐标 *wrist3_Link*
    - camera在手上，则*eye_on_hand = true*，在手外则 *eye_on_hand = false* 	
 
