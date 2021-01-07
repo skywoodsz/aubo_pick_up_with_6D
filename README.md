@@ -38,6 +38,7 @@
 	
 	
 	**1.2** 修改引用路径
+	
 	``import sys``
 	
 	``sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')``
@@ -56,13 +57,13 @@
 	
 2. 显卡驱动安装
 
-  ​	1050Ti对应 380驱动，使用ppa安装，**关掉boot的安全模式**
+  1050Ti对应 380驱动，使用ppa安装，**关掉boot的安全模式**
 
   
 
 3. 权重
 
-  ​	如文件夹weights所示
+  如文件夹weights所示
 ## 3. 手眼标定
 
 **3.1** 安装realsense
@@ -105,6 +106,7 @@
 **3.4** easy_handeye安装
 
 ``git clone https://github.com/IFL-CAMP/easy_handeye``
+
 ``catkin_make -j2 -DCATKIN_WHITELIST_PACKAGES="easy_handeye"``
 
 *Notes:*
